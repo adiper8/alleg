@@ -1,7 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
 
-var Menu = new Schema({
+const menus = new mongoose.Schema({
     date: {
         type: Date,
         required: true,
@@ -17,7 +16,15 @@ var Menu = new Schema({
     },
     sides:{
         type: String,
-    }
-},{ collection: 'Menus' })
+    },
+    id:{
+        type: Number,
+        required : true,
+        unique: true
+    },
 
-module.exports = mongoose.model('Menu', Menu);
+})
+
+const Menu = mongoose.model('Menu', menus);
+
+export { Menu};
