@@ -18,7 +18,7 @@ const createUser = async (req, res) => {
 }
 
 const deleteUser = async (req, res) =>{
-    await connectionToDB();
+    connectToDB('allegronetDB');
     try{
         let response = await User.deleteOne({id: req.params.id})
         return res.status(200).send(response)
