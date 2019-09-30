@@ -16,12 +16,7 @@ const menus = new mongoose.Schema({
     },
     sides:{
         type: String,
-    },
-    id:{
-        type: Number,
-        required : true,
-        unique: true
-    },
+    }
 
 })
 
