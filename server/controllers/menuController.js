@@ -1,8 +1,8 @@
-import {connectionToDB} from '../services/utiles'
+import {connectToDB} from '../services/utillitiesService'
 import {Menu} from '../models/menu'
 
 const createMenu = async (req, res) => {
-    await connectionToDB();
+    connectToDB('allegronetDB');
     let menu;
 
     try {
@@ -10,7 +10,6 @@ const createMenu = async (req, res) => {
         console.log('reut'+newMenu)
         const savedMenu = await newMenu.save();
         res.status(201).send(savedMenu);
-
     }
     catch (err) {
         res.status(500).send(err);
@@ -19,7 +18,7 @@ const createMenu = async (req, res) => {
 }
 
 const getMenus = async (req, res) => {
-    await connectionToDB();
+    connectToDB('allegronetDB');
 
     try {
         let menus = await Menu.find({})
@@ -32,7 +31,7 @@ const getMenus = async (req, res) => {
 }
 
 const getMenuByDate = async (req, res) => {
-    await connectionToDB();
+    connectToDB('allegronetDB');
     try {
         let menus = await Menu.find({date: req.body.date})
         return res.status(200).send(menus);
