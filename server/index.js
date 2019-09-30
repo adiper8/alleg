@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import userRoute from'./routes/userRoute';
+import menuRoute from './routes/menuRoute'
 
 const app = express()
 const port = 3000
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 });
 
 userRoute(app)
+menuRoute(app)
 
 app.listen(port,()=>{
     console.log('server is running - listening port 3000')
