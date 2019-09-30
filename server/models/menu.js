@@ -8,7 +8,7 @@ const menus = new mongoose.Schema({
     salads:{
         type: String,
     },
-    meet:{
+    meat:{
         type: String,
     },
     vegetarian:{
