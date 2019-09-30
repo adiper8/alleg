@@ -1,15 +1,14 @@
-import {createUser, deleteUser} from '../controllers/userController'
+import {createUser, deleteUser,getUsers} from '../controllers/userController'
 
 const routes = (app) =>{
     app.route('users/createuser')
-        createUser(req.body)
+        .post(createUser)
 
     app.route('users/deleteuser')
-        deleteUser(req.body);
-
+        .delete(deleteUser)
 
     app.route('/users')
-    .get(getUsers);
+        .get(getUsers)
 };
 
 

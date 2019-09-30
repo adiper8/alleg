@@ -4,14 +4,14 @@ require('../models/user')
 
 let User = mongoose.model('User')
 
-async function createUser(user){
+const createUser = async (req, res) => {
     console.log("strat createUser")
 
     connectToDB('allegronetDB');
 
     var newUser={}
-    newUser.name = user.name;
-    newUser.id = user.id
+    newUser.name = req.body.name;
+    newUser.id = req.body.id
 
     let con = new User(newUser);
     con.save();
@@ -39,4 +39,4 @@ const getUsers = async (req, res) => {
     }
 }
 
-export {createUser, deleteUser}
+export {createUser, deleteUser,getUsers}
