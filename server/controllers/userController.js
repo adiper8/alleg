@@ -17,12 +17,16 @@ const createUser = async (req, res) => {
     con.save();
 }
 
-async function deleteUser(user){
-    console.log("strat deleteUser")
-
-    connectToDB('allegronetDB');
-    let reut = await User.remove({
-        id:user.id})
+const deleteUser = async (req, res) =>{
+    await connectionToDB();
+    try{
+        let response = await User.deleteOne({id: req.params.id})
+        return res.status(200).send(response)
+    }
+    catch(err){
+        console.log(err)
+        throw err;
+    }
 }
 
 const getUsers = async (req, res) => {
