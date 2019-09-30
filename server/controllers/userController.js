@@ -25,5 +25,18 @@ async function deleteUser(user){
         id:user.id})
 }
 
+const getUsers = async (req, res) => {
+    connectToDB('allegronetDB');
+
+    try {
+        let users = await User.find({})
+        res.status(200).send(users);
+    }
+    catch (err) {
+        if (err.status && err.status >= 400 && err.status < 500) {
+            res.status(err.status).send(err.message);
+        }
+    }
+}
 
 export {createUser, deleteUser}
