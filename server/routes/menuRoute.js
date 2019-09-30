@@ -2,7 +2,7 @@ import {createMenu,getMenus,getMenuByDate} from '../controllers/menuController'
 
 
 const menuRoute = (app) =>{
-    app.route('/menus')
+    app.route('/menus/create-menu')
         .post(createMenu);
     app.route('/menus')
         .get(getMenus);
