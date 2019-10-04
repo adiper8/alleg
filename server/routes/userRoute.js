@@ -1,4 +1,4 @@
-import {createUser, deleteUser,getUsers} from '../controllers/userController'
+import {createUser, deleteUser,getUsers,addDateToUser} from '../controllers/userController'
 
 const routes = (app) =>{
     app.route('/users/create-user')
@@ -9,6 +9,9 @@ const routes = (app) =>{
 
     app.route('/users')
         .get(getUsers)
+
+    app.route('/users/add-date')
+        .post(addDateToUser)
 };
 
 
