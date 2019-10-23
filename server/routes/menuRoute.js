@@ -6,7 +6,7 @@ const menuRoute = (app) =>{
         .post(createMenu);
     app.route('/menus')
         .get(getMenus);
-    app.route('/menus/menus-by-date')
+    app.route('/menus/menu-by-date')
         .get(getMenuByDate);
 
 };
