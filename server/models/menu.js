@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const menus = new mongoose.Schema({
-    date: {
+    dateValue: {
         type: String,
         required: true,
     },
