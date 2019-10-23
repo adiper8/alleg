@@ -33,7 +33,7 @@ const getMenus = async (req, res) => {
 const getMenuByDate = async (req, res) => {
     connectToDB('allegronetDB');
     try {
-        let menus = await Menu.find({date: req.body.date})
+        let menus = await Menu.find({dateValue: req.body.date})
         return res.status(200).send(menus);
     }
     catch (err) {
@@ -41,5 +41,7 @@ const getMenuByDate = async (req, res) => {
     }
     return res.status(500).send("Unexpected error")
 }
+
+
 
 export{createMenu,getMenus, getMenuByDate}
