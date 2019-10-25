@@ -64,7 +64,9 @@ const getUsersByDate = async (req, res) => {
     try {
         let users = await User.find({dates:req.query.date})
         var usersName = users.map( function(user) {
-            return user.name;
+            return {
+                "name":user.name
+            }
         });
         res.status(200).send(usersName);
     }
