@@ -55,20 +55,16 @@
     <br>
     <div class="row">
       <div class="col" style="text-align-last: right;">
-        <h3>סלטי היום</h3>  
-        <p>סלט חומוס, סלט טחינה, חצילים, סלט ירקות, סלט כרוב</p>
-      <h3>מנות בשריות</h3>  
-        <p>כרעיים עוף בגריל, מוקפץ עוף, שניצל</p>
-      <h3>מנות צמחוניות</h3>  
-        <p>פלפל ממולא</p>
-      <h3>תוספות</h3>  
-        <p>אורז לבן, פסטה, קינואה</p>
+        <h3 id="salads">סלטי היום</h3>  
+        <h3 id="meat">מנות בשריות</h3>  
+        <h3 id="vegetarian">מנות צמחוניות</h3>  
+        <h3 id="sides">תוספות</h3>  
       </div>
       <div class="col" >
         <select id="select-user" class="selectpicker" data-live-search="true" data-size="6">
             <option selected style="display:none;">בחר שם עובד...</option>
           </select>
-        <button type="button" class="btn btn-primary" style="margin-right: 15px;">מגיע/ה!</button>
+        <button type="button" class="btn btn-primary" onclick="userSetDate()" style="margin-right: 15px;">מגיע/ה!</button>
         <br><br><br><br>
         <table class="table table-striped col-md-auto">
           <thead>
@@ -77,37 +73,13 @@
               <th scope="col">שם עובד/ת</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>עדי פרלוב</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>רעות פרלוב</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>ליאור ביטון</td>
-            </tr>
+          <tbody id="users-table">
           </tbody>
           </table>
     </div>
     </div>
   </div>
-
-  
 </main>
-
-id:<input id="c-user-id-txt" type="text">
-<br>
-name:<input id="c-user-txt" type="text">
-<input id="c-User-btn" type="button" value="Create User" onclick="createUser()"/>
-<br><br>
-<input id="c-deluser-txt" type="text">
-<input id="c-deluser-btn" type="button" value="Delete User" onclick="deleteUser()"/>
-<br><br>
-<input id="c-get-users-btn" type="button" value="Get all users" onclick="getUsers()"/>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
