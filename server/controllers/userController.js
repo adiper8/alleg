@@ -62,8 +62,11 @@ const addDateToUser = async (req, res) => {
 const getUsersByDate = async (req, res) => {
     connectToDB('allegronetDB');
     try {
-        let users = await User.findA({dates:req.query.id})
-        res.status(200).send(users);
+        let users = await User.find({dates:req.query.date})
+        var usersName = users.map( function(user) {
+            return user.name;
+        });
+        res.status(200).send(usersName);
     }
     catch (err) {
         if (err.status && err.status >= 400 && err.status < 500) {
