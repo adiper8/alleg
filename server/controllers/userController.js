@@ -59,4 +59,20 @@ const addDateToUser = async (req, res) => {
     }
 }
 
-export {createUser, deleteUser,getUsers,addDateToUser}
+const getUsersByDate = async (req, res) => {
+    connectToDB('allegronetDB');
+    try {
+        let users = await User.findA({dates:req.query.id})
+        res.status(200).send(users);
+    }
+    catch (err) {
+        if (err.status && err.status >= 400 && err.status < 500) {
+            res.status(err.status).send(err.message);
+        }
+    }
+}
+
+
+
+
+export {createUser, deleteUser,getUsers,addDateToUser,getUsersByDate}
