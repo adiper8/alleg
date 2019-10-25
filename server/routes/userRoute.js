@@ -13,7 +13,7 @@ const routes = (app) =>{
     app.route('/users/add-date')
         .post(addDateToUser)
 
-    app.route('users/find-users-by-date')
+    app.route('/users/find-users-by-date')
         .get(getUsersByDate)
 };
 
