@@ -8,6 +8,7 @@ var User = new Schema({
         type: String,
     },
     id: {
+        unique: true,
         type: String,
     },
     dates:{
