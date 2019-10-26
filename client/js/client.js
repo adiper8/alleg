@@ -10,6 +10,7 @@ $('#sunday').click(function(){
     displayDate.innerHTML = currentDate;
     currentDate = currentDate.replace(/\//g, "-");
     getMenuByDate(currentDate);
+    getUsersByDate(currentDate);
     return false; 
 });
 
@@ -22,6 +23,7 @@ $('#monday').click(function(){
     displayDate.innerHTML = currentDate;
     currentDate = currentDate.replace(/\//g, "-");
     getMenuByDate(currentDate);
+    getUsersByDate(currentDate);
     return false; 
 });
 
@@ -34,6 +36,7 @@ $('#tuesday').click(function(){
     displayDate.innerHTML = currentDate;
     currentDate = currentDate.replace(/\//g, "-");
     getMenuByDate(currentDate);
+    getUsersByDate(currentDate);
     return false; 
 });
 
@@ -46,6 +49,7 @@ $('#wednesday').click(function(){
     displayDate.innerHTML = currentDate;
     currentDate = currentDate.replace(/\//g, "-");
     getMenuByDate(currentDate);
+    getUsersByDate(currentDate);
     return false; 
 });
 
@@ -58,6 +62,7 @@ $('#thursday').click(function(){
     displayDate.innerHTML = currentDate;
     currentDate = currentDate.replace(/\//g, "-");
     getMenuByDate(currentDate);
+    getUsersByDate(currentDate);
     return false; 
 });
 
@@ -135,7 +140,7 @@ function getMenuByDate(date) {
         var pMeat = document.getElementById("p-meat");
         var pVeg = document.getElementById("p-vegetarian");
         var pSides = document.getElementById("p-sides");
-        
+
         pSalads.innerHTML = "";
         pMeat.innerHTML = "";
         pVeg.innerHTML = "";
@@ -168,7 +173,6 @@ function userSetDate(){
             return;
         }
 
-        $("#users-table").empty();
         getUsersByDate(currentDate);
 
     });
@@ -180,6 +184,10 @@ function userSetDate(){
 }
 
 function getUsersByDate(date) {
+
+    //clean all users
+    $("#users-table").empty();
+
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:3000/users/find-users-by-date?date=" + date, true);
     xhr.setRequestHeader("Content-Type", "application/json");
