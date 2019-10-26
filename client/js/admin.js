@@ -67,7 +67,7 @@ function createNewMenu(){
         var responseInfo = JSON.parse(this.responseText);
         document.getElementById("c-deluser-txt").value = "";
         
-        if (responseInfo.n > 0)
+        if (responseInfo.dateValue != "")
         {
             document.getElementById("c-menu-date").value = "";
             document.getElementById("c-menu-salads").value = "";

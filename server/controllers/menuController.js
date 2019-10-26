@@ -9,7 +9,7 @@ const createMenu = async (req, res) => {
         let newMenu = new Menu(req.body)
         console.log('reut'+newMenu)
         const savedMenu = await newMenu.save();
-        res.status(201).send(savedMenu);
+        res.status(200).send(savedMenu);
         return;
     }
     catch (err) {
