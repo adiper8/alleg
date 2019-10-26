@@ -92,47 +92,6 @@ currentDate = currentDate.replace(/\//g, "-");
 getMenuByDate(currentDate);
 getUsersByDate(currentDate);
 
-function createUser() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/users/create-user", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.addEventListener('load', function (e) { 
-        if(xhr.status == 200){
-            console.log('Status: ' + xhr.status + ' is OK!');
-        }
-        else{
-            console.log('Status: ' + xhr.status + ' is not OK');
-            return;
-        }
-    });
-
-    var name = document.getElementById("c-user-txt").value;
-    var id = document.getElementById("c-user-id-txt").value;
-
-    xhr.send(JSON.stringify({
-        name: name,
-        id : id
-    }));
-}
-
-function deleteUser() {
-    var id = document.getElementById("c-deluser-txt").value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("DELETE", "http://localhost:3000/users/delete-user/" + id, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.addEventListener('load', function (e) { 
-        if(xhr.status == 200){
-            console.log('Status: ' + xhr.status + ' is OK!');
-        }
-        else{
-            console.log('Status: ' + xhr.status + ' is not OK');
-            return;
-        }
-    });
-    xhr.send();
-}
-
 function getUsers() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:3000/users", true);
@@ -172,41 +131,22 @@ function getMenuByDate(date) {
         var responseInfo = JSON.parse(this.responseText);
         console.log(responseInfo);
 
-        //remove p-salads if exists
-        $("#p-salads").remove();
-        //remove p-meat if exists
-        $("#p-meat").remove();
-        //remove p-vegetarian if exists
-        $("#p-vegetarian").remove();
-        //remove p-sides if exists
-        $("#p-sides").remove();     
+        var pSalads = document.getElementById("p-salads");
+        var pMeat = document.getElementById("p-meat");
+        var pVeg = document.getElementById("p-vegetarian");
+        var pSides = document.getElementById("p-sides");
+        
+        pSalads.innerHTML = "";
+        pMeat.innerHTML = "";
+        pVeg.innerHTML = "";
+        pSides.innerHTML = "";
 
         if(responseInfo.length > 0)
         {
-            var saladsElement = document.getElementById("salads");
-            var meatElement = document.getElementById("meat");
-            var vegetarianElement = document.getElementById("vegetarian");
-            var sidesElement = document.getElementById("sides");
-    
-            var salads = document.createElement('p');
-            salads.setAttribute("id", "p-salads");
-            salads.innerHTML = responseInfo[0].salads;
-            insertAfter(salads, saladsElement);
-    
-            var meat = document.createElement('p');
-            meat.setAttribute("id", "p-meat");
-            meat.innerHTML = responseInfo[0].meat;
-            insertAfter(meat, meatElement);
-    
-            var vegetarian = document.createElement('p');
-            vegetarian.setAttribute("id", "p-vegetarian");
-            vegetarian.innerHTML = responseInfo[0].vegetarian;
-            insertAfter(vegetarian, vegetarianElement);
-
-            var sides = document.createElement('p');
-            sides.setAttribute("id", "p-sides");
-            sides.innerHTML = responseInfo[0].sides;
-            insertAfter(sides, sidesElement);
+            pSalads.innerHTML = responseInfo[0].salads;
+            pMeat.innerHTML = responseInfo[0].meat;
+            pVeg.innerHTML = responseInfo[0].vegetarian;
+            pSides.innerHTML = responseInfo[0].sides;
         }
         else
         {

@@ -33,6 +33,10 @@
       body{
         background-color: #f7f7f7;
       }
+
+      p {
+            margin: 0px !important;
+      }
     </style>
     <!-- Custom styles for this template -->
 
@@ -139,18 +143,18 @@
                                 <input type="text" id="c-arrived" onkeypress="return false;" class="form-control">
                         </div>
                     </div>
-                    <input id="c-menu-show-btn" type="button" class="btn btn-primary" value="הצג תפריט"  style="margin-top: 15px;" onclick="showMenu()"/>
+                    <input id="c-menu-show-btn" type="button" class="btn btn-primary" value="הצג תפריט"  style="margin-top: 15px;" onclick="getMenuByDate()"/>
                     <br><br>
                     <div class="row">
                         <div class="col" style="text-align-last: right;">
                             <h4>סלטי היום</h4>  
-                            <p></p>
+                            <p id="p-salads"></p>
                             <h4>מנות בשריות</h4>  
-                            <p></p>
+                            <p id="p-meat"></p>
                             <h4>מנות צמחוניות</h4>  
-                            <p></p>
+                            <p id="p-vegetarian"></p>
                             <h4>תוספות</h4>  
-                            <p></p>
+                            <p id="p-sides"></p>
                         </div>
                     </div>
                     <br>

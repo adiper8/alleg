@@ -14,7 +14,9 @@ const createUser = async (req, res) => {
     newUser.id = req.body.id
 
     let con = new User(newUser);
-    con.save();
+    await con.save();
+    res.status(200).send(con)
+    return 
 }
 
 const deleteUser = async (req, res) =>{
@@ -49,8 +51,9 @@ const addDateToUser = async (req, res) => {
     try {
         let user = await User.findOne({id:req.body.id})
         user.dates.push(req.body.date)
-        user.save()
+        await user.save()
         res.status(200).send(user);
+        return;
     }
     catch (err) {
         if (err.status && err.status >= 400 && err.status < 500) {
